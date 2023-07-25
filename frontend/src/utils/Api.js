@@ -89,7 +89,7 @@ class Api {
 }
 
 export const api = new Api({
-  url: 'https://api.mesto-andriyanova.nomoredomains.xyz',
+  url: 'http://api.mesto-andriyanova.nomoredomains.xyz',
   headers: {
     authorization: `Bearer ${localStorage.getItem('token') || ''}`,
     'Content-Type': 'application/json'
