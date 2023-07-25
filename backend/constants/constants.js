@@ -7,6 +7,14 @@ const INTERNAL_SERVER_ERROR_CODE = 500;
 
 const REG_EXP = /https?:\/\/(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-/])*)?/;
 const SECRET_KEY = 'secret-key';
+const allowedCors = [
+  'http://api.mesto-andriyanova.nomoredomains.xyz',
+  'https://api.mesto-andriyanova.nomoredomains.xyz',
+  'http://mesto-andriyanova.nomoredomains.xyz',
+  'https://mesto-andriyanova.nomoredomains.xyz',
+  'http://localhost:3000',
+];
+const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 module.exports = {
   INTERNAL_SERVER_ERROR_CODE,
@@ -17,4 +25,6 @@ module.exports = {
   UNAUTHORIZE_ERROR_CODE,
   OK_CODE,
   SECRET_KEY,
+  allowedCors,
+  DEFAULT_ALLOWED_METHODS,
 };
