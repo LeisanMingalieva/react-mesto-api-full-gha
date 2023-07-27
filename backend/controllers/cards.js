@@ -7,7 +7,7 @@ const BadRequestError = require('../helpers/errors/BadRequestError');
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
   // const owner = req.user.id;
-  Card.create({ name, link, owner: req.user.id_id })
+  Card.create({ name, link, owner: req.user.id._id })
     .then((card) => {
       res.status(CREATED_CODE).send({ name: card.name, link: card.link, _id: card._id });
     })
