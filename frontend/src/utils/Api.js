@@ -4,7 +4,15 @@ class Api {
     this.headers = config.headers;
   }
 
+  _updateHeaders() {
+    this.headers = {
+      ...this.headers,
+      Authorization: `Bearer ${localStorage.getItem("token") || ""}`
+    }
+  }
+
   getInitialCards() {
+    this._updateHeaders();
     return this._request("/cards", {
         method: 'GET',
         headers:this.headers,
@@ -12,6 +20,7 @@ class Api {
   }
 
   getUserData() {
+    this._updateHeaders();
     return this._request("/users/me", {
       method: 'GET',
         headers: this.headers
@@ -91,7 +100,7 @@ class Api {
 export const api = new Api({
   url: 'http://api.mesto-andriyanova.nomoredomains.xyz',
   headers: {
-    authorization: `Bearer ${localStorage.getItem('token') || ''}`,
+    Authorization: `Bearer ${localStorage.getItem('token') || ''}`,
     'Content-Type': 'application/json'
   },
 })
