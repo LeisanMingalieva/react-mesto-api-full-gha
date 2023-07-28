@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../helpers/errors/Unauthorized');
 const NotFoundError = require('../helpers/errors/NotFoundError');
-const { SECRET_KEY } = require('../constants/constants');
+// const { SECRET_KEY } = require('../constants/constants');
 
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
 
   let payload;
   try {
-    payload = jwt.verify(token, SECRET_KEY);
+    payload = jwt.verify(token, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (err) {
     next(new NotFoundError('Ошибка авторизации'));
     return;
