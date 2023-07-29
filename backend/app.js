@@ -27,8 +27,8 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-app.use(router);
 app.use(helmet());
+app.use(router);
 app.use(errorLogger);
 app.use(errors());
 app.use(error);
