@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.45.162
+IP 158.160.45.162
 
 Frontend https://mesto-andriyanova.nomoredomains.xyz/
 
