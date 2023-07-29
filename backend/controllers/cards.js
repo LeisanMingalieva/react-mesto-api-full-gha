@@ -5,9 +5,13 @@ const ForbiddenError = require('../helpers/errors/ForiddenError');
 const BadRequestError = require('../helpers/errors/BadRequestError');
 
 const createCard = (req, res, next) => {
-  const { name, link } = req.body;
+  const {
+    name, link, likes, createdAt,
+  } = req.body;
   const owner = req.user.id;
-  Card.create({ name, link, owner })
+  Card.create({
+    name, link, owner, likes, createdAt,
+  })
     .then((card) => {
       res.status(CREATED_CODE).send(card);
     })
