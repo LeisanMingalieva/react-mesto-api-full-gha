@@ -77,7 +77,7 @@ const handleLogin = ({email, password}) => {
       }
     })
     .catch(err => {
-      console.log(err)
+      setIsInfoTooltipOpen(true);
     })
 }
 //Проверка валидности токена
